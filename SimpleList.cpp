@@ -19,7 +19,7 @@ template <class T> SimpleList<T>::~SimpleList() {
 }
 
 template <class T> T SimpleList<T>::at(int index)const throw(InvalidIndexException) {
-    if (index < 0 || index > numElements) {
+    if (index < 0 || index >= numElements) {
         InvalidIndexException d;
         throw d;
 
@@ -69,7 +69,7 @@ template <class T> void SimpleList<T>::remove(int index) throw (InvalidIndexExce
     if (numElements == 0) {
         EmptyListException e;
         throw e;
-    } else if (index < 0 || index > numElements) {
+    } else if (index < 0 || index >= numElements) {
         InvalidIndexException i;
         throw i;
     } else {
