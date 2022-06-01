@@ -20,8 +20,8 @@ template <class T> SimpleList<T>::~SimpleList() {
 
 template <class T> T SimpleList<T>::at(int index)const throw(InvalidIndexException) {
     if (index < 0 || index >= numElements) {
-        InvalidIndexException d;
-        throw d;
+        InvalidIndexException a;
+        throw a;
 
     } else {
         return elements[index];
@@ -34,8 +34,8 @@ template <class T> bool SimpleList<T>::empty() const {
 
 template <class T> T SimpleList<T>::first() const throw(EmptyListException) {
     if (numElements == 0) {
-        EmptyListException e;
-        throw e;
+        EmptyListException b;
+        throw b;
     } else {
         return elements[0];
     }
@@ -43,22 +43,21 @@ template <class T> T SimpleList<T>::first() const throw(EmptyListException) {
 
 template <class T> T SimpleList<T>::last () const throw(EmptyListException) {
     if (numElements == 0) {
-        EmptyListException e;
-        throw e;
+        EmptyListException c;
+        throw c;
     } else {
         return elements[numElements-1];
     }
 }
 
-template <class T>
-int SimpleList<T>::getNumElements() const {
+template <class T> int SimpleList<T>::getNumElements() const {
     return numElements;
 }
 
 template <class T> void SimpleList<T>::insert(T item) throw (FullListException) {
     if (numElements == CAPACITY) {
-        FullListException f;
-        throw f;
+        FullListException d;
+        throw d;
     } else {
         elements[numElements] = item;
         numElements++;
@@ -70,31 +69,13 @@ template <class T> void SimpleList<T>::remove(int index) throw (InvalidIndexExce
         EmptyListException e;
         throw e;
     } else if (index < 0 || index >= numElements) {
-        InvalidIndexException i;
-        throw i;
+        InvalidIndexException f;
+        throw f;
     } else {
-        for (int i=index+1; i <numElements; i++ ) {
+        for (int i = index; i <numElements; i++ ) {
             elements[i-1] = elements[i];
         }
     }
 }
 
-//template SimpleList::SimpleList();
-//template SimpleList<int>::SimpleList();
-//template SimpleList::~SimpleList();
-//template SimpleList<int>::~SimpleList();
-//template SimpleList<string>::string at(int index)const throw(InvalidIndexException);
-//template SimpleList<int>::int at(int index)const throw(InvalidIndexException);
-//template bool SimpleList<string>::empty() const;
-//template bool SimpleList<int>::empty() const;
-//template SimpleList<string>::string first() const throw(EmptyListException);
-//template SimpleList<int>::int first() const throw(EmptyListException);
-//template SimpleList<string>::string last () const throw(EmptyListException);
-//template SimpleList<int>::int last () const throw(EmptyListException);
-//template int SimpleList<string>::getNumElements() const;
-//template int SimpleList<int>::getNumElements() const;
-//template void SimpleList<string>::string insert(string item) throw (FullListException);
-//template void SimpleList<int>::int insert(int item) throw (FullListException);
-//template void SimpleList<string>::remove(int index) throw (InvalidIndexException, EmptyListException);
-//template void SimpleList<int>::remove(int index) throw (InvalidIndexException, EmptyListException);
 
