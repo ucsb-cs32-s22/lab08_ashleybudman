@@ -9,13 +9,30 @@
 
 using namespace std;
 
+template <class T> void destroy(T element) {
+}
+
+template <class T> void destroy (T* element) {
+    delete element;
+}
+
+template <class T> void function1(T x) {
+    if (is_pointer<T>::value) {
+        destroy(x[0]);
+    } else {
+        destroy(x[0]);
+    }
+}
+
+
+
 template <class T> SimpleList<T>::SimpleList() {
     elements = new T[CAPACITY];
     numElements = 0;
 }
 
 template <class T> SimpleList<T>::~SimpleList() {
-    delete [] elements;
+    function1(elements);
 }
 
 template <class T> T SimpleList<T>::at(int index)const throw(InvalidIndexException) {
@@ -72,7 +89,7 @@ template <class T> void SimpleList<T>::remove(int index) throw (InvalidIndexExce
         InvalidIndexException f;
         throw f;
     } else {
-        for (int i = index; i <numElements; i++ ) {
+        for (int i = index+1; i <numElements; i++ ) {
             elements[i-1] = elements[i];
         }
     }
